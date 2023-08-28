@@ -12,15 +12,24 @@ function VideoList({ videos, onDelete, onRemoveAll}) {
     return (
         <div>
             {videos.length > 0 && (
-                <Button variant="outlined" color="error" onClick={onRemoveAll} style={{ marginBottom: '20px' }}>
-                    Remove All Videos
-                </Button>
+                    <Grid  container direction="row"  spacing={3} >
+                        <Grid item >
+                            <Button variant="outlined" color="error" onClick={onRemoveAll} style={{ marginBottom: '20px' }}>
+                                Remove All Videos
+                            </Button>
+                        </Grid>
+                        <Grid item >
+                            <Button variant="outlined" startIcon={<UploadIcon />}>
+                                Upload
+                            </Button>
+                    </Grid>
+                </Grid>
             )}
         <Grid container spacing={5}>
             {[...videos].reverse().map(video => (
                 <Grid item xs={12} sm={12} md={6} lg={4} key={video.id}>
                     {video && (<Card variant="outlined"
-                        sx={{  minWidth: 380, flexGrow: 1 }}>
+                        sx={{  minWidth: 360, flexGrow: 1 }}>
                         <video width="100%" controls src={video.url}></video>
                         <CardContent>
                             {/* <Box sx={{ width: '100%' }}>
