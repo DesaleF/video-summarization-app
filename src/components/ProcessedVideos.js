@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { IconButton, TextField, Button, Paper, Divider, InputBase } from '@mui/material';
+import { IconButton, TextField, Button, Paper, Divider, InputBase, Badge } from '@mui/material';
 import { Grid, Card, CardContent, Typography, CardActionArea } from '@mui/material';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import SearchIcon from '@mui/icons-material/Search';
-
+import RemoveCircleSharpIcon from '@mui/icons-material/RemoveCircleSharp';
 
 function SearchAndFilters({ onSearch, onFilterChange, onClearFilters }) {
     return (
@@ -44,31 +44,37 @@ function SearchAndFilters({ onSearch, onFilterChange, onClearFilters }) {
     );
 }
 
-
 function FileList({ files, onDelete }) {
     return (
          <Grid container spacing={3}>
             {files.map(file => (
-                <Grid item justifyContent="center" xs={12} sm={6} md={4} key={file.id}>
-                    <Card variant="outlined">
-                        <CardActionArea>
-                        <CardContent>
-                            <Typography variant="h6">{file.videoName}</Typography>
-                            <Typography color="textSecondary">Processed Date: {file.processedDate}</Typography>
-                            <Typography color="textSecondary">Keyframes: {file.summary.keyframes}</Typography>
-                            <Typography color="textSecondary">Shots: {file.summary.shots}</Typography>
-                            <Typography color="textSecondary">
-                                Processing Option: {file.processingOption.sampleFrame ? 'Sample Frame' : 'All Frames'}
-                            </Typography>
-                            <Typography color="textSecondary">
-                                Summary Visualization: {file.summaryVisualization.keyFrame ? 'Key Frame' : 'Short Clip'}
-                            </Typography>
-                        </CardContent>
-                        </CardActionArea>
-                        <IconButton edge="end" aria-label="delete" onClick={() => onDelete(file.id)}>
-                            <DeleteRoundedIcon />
-                        </IconButton>
-                    </Card>
+                <Grid item justifyContent="center" xs={12} sm={6} md={3} key={file.id}>
+                    <Badge
+                        badgeContent={
+                            <IconButton
+                                edge="end"
+                                variant="contained"
+                                color='error'
+                                aria-label="delete"
+                                fontSize="large" 
+                                onClick={() => onDelete(file.id)}
+                            >
+                                <RemoveCircleSharpIcon />
+                            </IconButton>
+                        }
+                    >
+                        <Card  size="lg">
+                            <CardActionArea>
+                                <CardContent>
+                                    <Typography variant="h6" color="text.secondary" >{file.videoName}</Typography>
+                                    <Typography color="textSecondary">Processed Date: {file.processedDate}</Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            {/* <IconButton edge="end" aria-label="delete" onClick={() => onDelete(file.id)}>
+                                <DeleteRoundedIcon />
+                            </IconButton> */}
+                        </Card>
+                    </Badge>
                 </Grid>
             ))}
         </Grid>
@@ -80,98 +86,34 @@ function ProcessedVideos() {
             id: 1,
             videoName: 'Video1.mp4',
             processedDate: '2022-04-15',
-            summary: {
-                keyframes: 10,
-                shots: 5
-            },
-            processingOption: {
-                sampleFrame: true,
-                allFrames: false
-            },
-            summaryVisualization: {
-                keyFrame: true,
-                shortClip: false
-            }
         },{
             id: 2,
-            videoName: 'Video1.mp4',
+            videoName: 'Video2.mp4',
             processedDate: '2022-04-15',
-            summary: {
-                keyframes: 10,
-                shots: 5
-            },
-            processingOption: {
-                sampleFrame: true,
-                allFrames: false
-            },
-            summaryVisualization: {
-                keyFrame: true,
-                shortClip: false
-            }
         },{
             id: 3,
-            videoName: 'Video1.mp4',
+            videoName: 'Video3.mp4',
             processedDate: '2022-04-15',
-            summary: {
-                keyframes: 10,
-                shots: 5
-            },
-            processingOption: {
-                sampleFrame: true,
-                allFrames: false
-            },
-            summaryVisualization: {
-                keyFrame: true,
-                shortClip: false
-            }
         },{
             id: 4,
-            videoName: 'Video1.mp4',
+            videoName: 'Video4.mp4',
             processedDate: '2022-04-15',
-            summary: {
-                keyframes: 10,
-                shots: 5
-            },
-            processingOption: {
-                sampleFrame: true,
-                allFrames: false
-            },
-            summaryVisualization: {
-                keyFrame: true,
-                shortClip: false
-            }
+        },{
+            id: 5,
+            videoName: 'Video5.mp4',
+            processedDate: '2022-04-15',
         },{
             id: 6,
-            videoName: 'Video1.mp4',
+            videoName: 'Video6.mp4',
             processedDate: '2022-04-15',
-            summary: {
-                keyframes: 10,
-                shots: 5
-            },
-            processingOption: {
-                sampleFrame: true,
-                allFrames: false
-            },
-            summaryVisualization: {
-                keyFrame: true,
-                shortClip: false
-            }
         },{
-            id: 20,
-            videoName: 'Video1.mp4',
+            id: 7,
+            videoName: 'Video7.mp4',
             processedDate: '2022-04-15',
-            summary: {
-                keyframes: 10,
-                shots: 5
-            },
-            processingOption: {
-                sampleFrame: true,
-                allFrames: false
-            },
-            summaryVisualization: {
-                keyFrame: true,
-                shortClip: false
-            }
+        },{
+            id: 8,
+            videoName: 'Video8.mp4',
+            processedDate: '2022-04-15',
         },]); // You can add your initial file data here
     const [filters, setFilters] = useState({ search: '', date: '', status: '' });
 

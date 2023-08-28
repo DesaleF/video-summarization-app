@@ -52,7 +52,10 @@ function AccountMenu() {
             </>
           ) : (
               <>
-                <MenuItem onClick={handleClose}>
+                {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                {/* <MenuItem onClick={handleClose}>
                 <Link to="/signup" style={{ textDecoration: 'none', color: 'inherit' }}>
                     Sign Up
                     </Link>
@@ -61,7 +64,7 @@ function AccountMenu() {
                   <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>
                       Login
                   </Link>
-                </MenuItem>
+                </MenuItem> */}
               </>
           )}
         </Menu>
