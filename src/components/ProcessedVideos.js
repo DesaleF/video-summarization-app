@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { IconButton, TextField, Button, Paper, Divider, InputBase, Badge } from '@mui/material';
 import { Grid, Card, CardContent, Typography, CardActionArea } from '@mui/material';
-import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import SearchIcon from '@mui/icons-material/Search';
 import RemoveCircleSharpIcon from '@mui/icons-material/RemoveCircleSharp';
+
+
 
 function SearchAndFilters({ onSearch, onFilterChange, onClearFilters }) {
     return (
