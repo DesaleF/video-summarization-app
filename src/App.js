@@ -2,14 +2,11 @@ import React, { useContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme} from '@mui/material/styles';
-import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/system';
 
 // import components
 import Navbar from './components/Navbar';
-import VideoUpload from './components/VideoUpload';
-import VideoList from './components/VideoList';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/Signup';

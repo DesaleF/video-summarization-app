@@ -4,7 +4,7 @@ function Footer() {
   return (
     <Box mt="auto" py={3} bgcolor="primary.main" color="white">
       <Typography variant="body2" align="center">
-        © 2023 Vicomtech. All Rights Reserved.
+        © 2023 . All Rights Reserved.
       </Typography>
       {/* <Typography variant="body2" align="center">
         Made with ❤️ by Your Name
